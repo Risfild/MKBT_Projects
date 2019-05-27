@@ -96,7 +96,6 @@
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.Size = new System.Drawing.Size(1044, 323);
             this.DataGrid.TabIndex = 1;
-            this.DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
             // 
             // FilmName
             // 
@@ -203,7 +202,6 @@
             this.groupBox.TabIndex = 3;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Добавление";
-            this.groupBox.Enter += new System.EventHandler(this.groupBox_Enter);
             // 
             // VideotapeType_ComboBox
             // 
@@ -228,7 +226,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(111, 20);
             this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // CopyType_Label
             // 
@@ -238,7 +235,6 @@
             this.CopyType_Label.Size = new System.Drawing.Size(121, 17);
             this.CopyType_Label.TabIndex = 0;
             this.CopyType_Label.Text = "Тип копии";
-            this.CopyType_Label.Click += new System.EventHandler(this.CopyType_Label_Click);
             // 
             // SalaryAmount_TextBox
             // 
@@ -248,7 +244,6 @@
             this.SalaryAmount_TextBox.Name = "SalaryAmount_TextBox";
             this.SalaryAmount_TextBox.Size = new System.Drawing.Size(111, 20);
             this.SalaryAmount_TextBox.TabIndex = 1;
-            this.SalaryAmount_TextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Tax_TextBox
             // 
@@ -258,7 +253,6 @@
             this.Tax_TextBox.Name = "Tax_TextBox";
             this.Tax_TextBox.Size = new System.Drawing.Size(111, 20);
             this.Tax_TextBox.TabIndex = 1;
-            this.Tax_TextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // CopayAmount_TextBox
             // 
@@ -276,7 +270,6 @@
             this.SalaryAmount_Label.Size = new System.Drawing.Size(122, 30);
             this.SalaryAmount_Label.TabIndex = 0;
             this.SalaryAmount_Label.Text = "Стоимость записи с учетом типа копии";
-            this.SalaryAmount_Label.Click += new System.EventHandler(this.label2_Click);
             // 
             // Tax_Label
             // 
@@ -285,7 +278,6 @@
             this.Tax_Label.Size = new System.Drawing.Size(128, 27);
             this.Tax_Label.TabIndex = 0;
             this.Tax_Label.Text = "Общая стоимость записи фильма";
-            this.Tax_Label.Click += new System.EventHandler(this.label2_Click);
             // 
             // VideotapeType_Label
             // 
@@ -383,7 +375,6 @@
             this.Add_Button.TabIndex = 4;
             this.Add_Button.Text = "Добавить";
             this.Add_Button.UseVisualStyleBackColor = true;
-            this.Add_Button.Click += new System.EventHandler(this.button1_Click);
             // 
             // Change_Button
             // 
@@ -394,7 +385,6 @@
             this.Change_Button.TabIndex = 4;
             this.Change_Button.Text = "Изменить";
             this.Change_Button.UseVisualStyleBackColor = true;
-            this.Change_Button.Click += new System.EventHandler(this.button2_Click);
             // 
             // Clear_Button
             // 
@@ -405,7 +395,6 @@
             this.Clear_Button.TabIndex = 4;
             this.Clear_Button.Text = "Очистить";
             this.Clear_Button.UseVisualStyleBackColor = true;
-            this.Clear_Button.Click += new System.EventHandler(this.button3_Click);
             // 
             // Filters_GroupBox
             // 
