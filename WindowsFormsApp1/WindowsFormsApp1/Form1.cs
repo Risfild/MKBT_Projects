@@ -32,5 +32,9 @@ namespace WindowsFormsApp1
             DataGrid.Rows.Add(FilmName_TextBox.Text, FilmGanre_TextBox.Text, FilmDuration_TextBox.Text, FilmCountry_TextBox.Text, FilmYear_TextBox.Text, VideotapeType_ComboBox.Text, CopyType_ComboBox.Text, "30", FilmRecordCost, FinalCost);
         }
 
+        private void Clear_Button_Click(object sender, EventArgs e)
+        {
+            DataGrid.Rows.RemoveAt(DataGrid.SelectedCells[0].RowIndex);
+        }
     }
 }

@@ -407,6 +407,7 @@
             this.Clear_Button.TabIndex = 4;
             this.Clear_Button.Text = "Очистить";
             this.Clear_Button.UseVisualStyleBackColor = true;
+            this.Clear_Button.Click += new System.EventHandler(this.Clear_Button_Click);
             // 
             // Filters_GroupBox
             // 
