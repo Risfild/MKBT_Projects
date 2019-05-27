@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
 
 
 namespace WindowsFormsApp1
@@ -48,29 +42,61 @@ namespace WindowsFormsApp1
 
         private void Clear_Button_Click(object sender, EventArgs e)
         {
+            if(DataGrid.SelectedCells != null)
             DataGrid.Rows.RemoveAt(DataGrid.SelectedCells[0].RowIndex);
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stream stream;
+            StreamReader reader;
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                stream = openFileDialog.OpenFile();
+                reader = new StreamReader(stream);
+
+                string[] DTStringRows = reader.ReadToEnd().Split('\n');
+                DataGrid.RowCount = DTStringRows.Length;
+
+
+                for (int i = 0; i < DTStringRows.Length - 1; i++)
+                {
+                    string[] currentRowValues = DTStringRows[i].Split('|');
+
+                    for (int j = 0; j < DataGrid.ColumnCount; j++)
+                    {
+                        DataGrid.Rows[i].Cells[j].Value = currentRowValues[j];
+                    }
+                }
+
+                reader.Close();
+                stream.Close();
+            }
 
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("file.txt");
-            List<string> DatabaseInformation = new List<string>();
-            string text = null;
-
-            for (int i = 0; i < DataGrid.Rows.Count - 1; i++)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                for (int j = 0; j < DataGrid.ColumnCount; j++)
+                Stream stream = saveFileDialog.OpenFile();
+                StreamWriter writer = new StreamWriter(stream);
+                List<string> DatabaseInformation = new List<string>();
+                string text = null;
+
+                for (int i = 0; i < DataGrid.Rows.Count - 1; i++)
                 {
-                    text += " " + DataGrid.Rows[i].Cells[j].Value;   
+                    for (int j = 0; j < DataGrid.ColumnCount; j++)
+                    {
+                        text += DataGrid.Rows[i].Cells[j].Value + "|";
+                    }
+                    writer.WriteLine(text);
+                    text = null;
                 }
-                DatabaseInformation.Add(text);
+                writer.Close();
+                stream.Close();
             }
-            File.WriteAllLines("text.txt", DatabaseInformation.ToArray());
         }
 
         private void Change_Button_Click(object sender, EventArgs e)
@@ -84,6 +110,37 @@ namespace WindowsFormsApp1
             VideotapeType_ComboBox.Text = (string)row.Cells[5].Value;
             CopyType_ComboBox.Text = (string)row.Cells[6].Value;
             DataGrid.Rows.RemoveAt(DataGrid.SelectedCells[0].RowIndex);
+        }
+
+        private void ApplyFilter_Click(object sender, EventArgs e)
+        {
+            if(MinutsSort_RadioButton.Checked)
+            {
+                int sortField = 2;
+                for (int i = 0; i < DataGrid.RowCount - 1; i++)
+                {
+                    if (int.Parse(DataGrid.Rows[i].Cells[sortField].Value.ToString()) <= 85)
+                        DataGrid.Rows.RemoveAt(i);
+                }
+            }
+            else
+            {
+                int sortField = 4;
+
+                for (int i = 0; i < DataGrid.RowCount - 1; i++)
+                    if (int.Parse(DataGrid.Rows[i].Cells[sortField].Value.ToString()) < int.Parse(YearSort_TextBox.Text))
+                        DataGrid.Rows.RemoveAt(i);
+            }
+        }
+
+        private void Sort1_Click(object sender, EventArgs e)
+        {
+            //DataGrid.Sort()
+        }
+
+        private void Exit_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

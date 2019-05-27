@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             this.DataGrid = new System.Windows.Forms.DataGridView();
-            this.FilmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilmGenre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilmDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilmCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilmYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VideotapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CopyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OneMinuteRecordCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecordCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinalRecordCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File_StripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox = new System.Windows.Forms.GroupBox();
@@ -67,12 +57,25 @@
             this.Clear_Button = new System.Windows.Forms.Button();
             this.Filters_GroupBox = new System.Windows.Forms.GroupBox();
             this.FilterYear = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.YearSort_TextBox = new System.Windows.Forms.TextBox();
             this.ApplyFilter = new System.Windows.Forms.Button();
-            this.DepartmentSort_RadioButton = new System.Windows.Forms.RadioButton();
-            this.WorkDaysSort_RadioButton = new System.Windows.Forms.RadioButton();
+            this.YearSort_RadioButton = new System.Windows.Forms.RadioButton();
+            this.MinutsSort_RadioButton = new System.Windows.Forms.RadioButton();
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.FilmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilmGenre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilmDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilmCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilmYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VideotapeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CopyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OneMinuteRecordCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecordCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinalRecordCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exit_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -98,66 +101,6 @@
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.Size = new System.Drawing.Size(1044, 323);
             this.DataGrid.TabIndex = 1;
-            // 
-            // FilmName
-            // 
-            this.FilmName.HeaderText = "Название фильма";
-            this.FilmName.Name = "FilmName";
-            this.FilmName.ReadOnly = true;
-            // 
-            // FilmGenre
-            // 
-            this.FilmGenre.HeaderText = "Жанр фильма";
-            this.FilmGenre.Name = "FilmGenre";
-            this.FilmGenre.ReadOnly = true;
-            // 
-            // FilmDuration
-            // 
-            this.FilmDuration.HeaderText = "Длительность фильма (в минутах)";
-            this.FilmDuration.Name = "FilmDuration";
-            this.FilmDuration.ReadOnly = true;
-            // 
-            // FilmCountry
-            // 
-            this.FilmCountry.HeaderText = "Страна-производитель";
-            this.FilmCountry.Name = "FilmCountry";
-            this.FilmCountry.ReadOnly = true;
-            // 
-            // FilmYear
-            // 
-            this.FilmYear.HeaderText = "Год выпуска";
-            this.FilmYear.Name = "FilmYear";
-            this.FilmYear.ReadOnly = true;
-            // 
-            // VideotapeType
-            // 
-            this.VideotapeType.HeaderText = "Тип видеокассеты";
-            this.VideotapeType.Name = "VideotapeType";
-            this.VideotapeType.ReadOnly = true;
-            // 
-            // CopyType
-            // 
-            this.CopyType.HeaderText = "Тип копии";
-            this.CopyType.Name = "CopyType";
-            this.CopyType.ReadOnly = true;
-            // 
-            // OneMinuteRecordCost
-            // 
-            this.OneMinuteRecordCost.HeaderText = "Стоимоть записи одной минуты";
-            this.OneMinuteRecordCost.Name = "OneMinuteRecordCost";
-            this.OneMinuteRecordCost.ReadOnly = true;
-            // 
-            // RecordCost
-            // 
-            this.RecordCost.HeaderText = "Общая стоимость записи фильма";
-            this.RecordCost.Name = "RecordCost";
-            this.RecordCost.ReadOnly = true;
-            // 
-            // FinalRecordCost
-            // 
-            this.FinalRecordCost.HeaderText = "Стоимость записи с учётом типа копии";
-            this.FinalRecordCost.Name = "FinalRecordCost";
-            this.FinalRecordCost.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -418,10 +361,10 @@
             // Filters_GroupBox
             // 
             this.Filters_GroupBox.Controls.Add(this.FilterYear);
-            this.Filters_GroupBox.Controls.Add(this.textBox1);
+            this.Filters_GroupBox.Controls.Add(this.YearSort_TextBox);
             this.Filters_GroupBox.Controls.Add(this.ApplyFilter);
-            this.Filters_GroupBox.Controls.Add(this.DepartmentSort_RadioButton);
-            this.Filters_GroupBox.Controls.Add(this.WorkDaysSort_RadioButton);
+            this.Filters_GroupBox.Controls.Add(this.YearSort_RadioButton);
+            this.Filters_GroupBox.Controls.Add(this.MinutsSort_RadioButton);
             this.Filters_GroupBox.Location = new System.Drawing.Point(301, 355);
             this.Filters_GroupBox.Name = "Filters_GroupBox";
             this.Filters_GroupBox.Size = new System.Drawing.Size(388, 125);
@@ -438,12 +381,12 @@
             this.FilterYear.TabIndex = 3;
             this.FilterYear.Text = "Год";
             // 
-            // textBox1
+            // YearSort_TextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(278, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(75, 20);
-            this.textBox1.TabIndex = 2;
+            this.YearSort_TextBox.Location = new System.Drawing.Point(278, 92);
+            this.YearSort_TextBox.Name = "YearSort_TextBox";
+            this.YearSort_TextBox.Size = new System.Drawing.Size(75, 20);
+            this.YearSort_TextBox.TabIndex = 2;
             // 
             // ApplyFilter
             // 
@@ -453,28 +396,29 @@
             this.ApplyFilter.TabIndex = 1;
             this.ApplyFilter.Text = "Применить фильтр";
             this.ApplyFilter.UseVisualStyleBackColor = true;
+            this.ApplyFilter.Click += new System.EventHandler(this.ApplyFilter_Click);
             // 
-            // DepartmentSort_RadioButton
+            // YearSort_RadioButton
             // 
-            this.DepartmentSort_RadioButton.Location = new System.Drawing.Point(6, 69);
-            this.DepartmentSort_RadioButton.Name = "DepartmentSort_RadioButton";
-            this.DepartmentSort_RadioButton.Size = new System.Drawing.Size(227, 65);
-            this.DepartmentSort_RadioButton.TabIndex = 0;
-            this.DepartmentSort_RadioButton.TabStop = true;
-            this.DepartmentSort_RadioButton.Tag = "filter";
-            this.DepartmentSort_RadioButton.Text = "Вывести список фильмов, год выпуска которых больше заданного";
-            this.DepartmentSort_RadioButton.UseVisualStyleBackColor = true;
+            this.YearSort_RadioButton.Location = new System.Drawing.Point(6, 69);
+            this.YearSort_RadioButton.Name = "YearSort_RadioButton";
+            this.YearSort_RadioButton.Size = new System.Drawing.Size(227, 65);
+            this.YearSort_RadioButton.TabIndex = 0;
+            this.YearSort_RadioButton.TabStop = true;
+            this.YearSort_RadioButton.Tag = "filter";
+            this.YearSort_RadioButton.Text = "Вывести список фильмов, год выпуска которых больше заданного";
+            this.YearSort_RadioButton.UseVisualStyleBackColor = true;
             // 
-            // WorkDaysSort_RadioButton
+            // MinutsSort_RadioButton
             // 
-            this.WorkDaysSort_RadioButton.Location = new System.Drawing.Point(6, 11);
-            this.WorkDaysSort_RadioButton.Name = "WorkDaysSort_RadioButton";
-            this.WorkDaysSort_RadioButton.Size = new System.Drawing.Size(266, 65);
-            this.WorkDaysSort_RadioButton.TabIndex = 0;
-            this.WorkDaysSort_RadioButton.TabStop = true;
-            this.WorkDaysSort_RadioButton.Tag = "filter";
-            this.WorkDaysSort_RadioButton.Text = "Вывести список фильмов длительностью более 85 минут";
-            this.WorkDaysSort_RadioButton.UseVisualStyleBackColor = true;
+            this.MinutsSort_RadioButton.Location = new System.Drawing.Point(6, 11);
+            this.MinutsSort_RadioButton.Name = "MinutsSort_RadioButton";
+            this.MinutsSort_RadioButton.Size = new System.Drawing.Size(266, 65);
+            this.MinutsSort_RadioButton.TabIndex = 0;
+            this.MinutsSort_RadioButton.TabStop = true;
+            this.MinutsSort_RadioButton.Tag = "filter";
+            this.MinutsSort_RadioButton.Text = "Вывести список фильмов длительностью более 85 минут";
+            this.MinutsSort_RadioButton.UseVisualStyleBackColor = true;
             // 
             // OpenToolStripMenuItem
             // 
@@ -490,11 +434,91 @@
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Text files (*.txt)|*.txt";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "Text files (*.txt)|*.txt";
+            // 
+            // FilmName
+            // 
+            this.FilmName.HeaderText = "Название фильма";
+            this.FilmName.Name = "FilmName";
+            this.FilmName.ReadOnly = true;
+            // 
+            // FilmGenre
+            // 
+            this.FilmGenre.HeaderText = "Жанр фильма";
+            this.FilmGenre.Name = "FilmGenre";
+            this.FilmGenre.ReadOnly = true;
+            // 
+            // FilmDuration
+            // 
+            this.FilmDuration.HeaderText = "Длительность фильма (в минутах)";
+            this.FilmDuration.Name = "FilmDuration";
+            this.FilmDuration.ReadOnly = true;
+            // 
+            // FilmCountry
+            // 
+            this.FilmCountry.HeaderText = "Страна-производитель";
+            this.FilmCountry.Name = "FilmCountry";
+            this.FilmCountry.ReadOnly = true;
+            // 
+            // FilmYear
+            // 
+            this.FilmYear.HeaderText = "Год выпуска";
+            this.FilmYear.Name = "FilmYear";
+            this.FilmYear.ReadOnly = true;
+            // 
+            // VideotapeType
+            // 
+            this.VideotapeType.HeaderText = "Тип видеокассеты";
+            this.VideotapeType.Name = "VideotapeType";
+            this.VideotapeType.ReadOnly = true;
+            // 
+            // CopyType
+            // 
+            this.CopyType.HeaderText = "Тип копии";
+            this.CopyType.Name = "CopyType";
+            this.CopyType.ReadOnly = true;
+            // 
+            // OneMinuteRecordCost
+            // 
+            this.OneMinuteRecordCost.HeaderText = "Стоимоть записи одной минуты";
+            this.OneMinuteRecordCost.Name = "OneMinuteRecordCost";
+            this.OneMinuteRecordCost.ReadOnly = true;
+            // 
+            // RecordCost
+            // 
+            this.RecordCost.HeaderText = "Общая стоимость записи фильма";
+            this.RecordCost.Name = "RecordCost";
+            this.RecordCost.ReadOnly = true;
+            // 
+            // FinalRecordCost
+            // 
+            this.FinalRecordCost.HeaderText = "Стоимость записи с учётом типа копии";
+            this.FinalRecordCost.Name = "FinalRecordCost";
+            this.FinalRecordCost.ReadOnly = true;
+            // 
+            // Exit_Button
+            // 
+            this.Exit_Button.Location = new System.Drawing.Point(1224, 441);
+            this.Exit_Button.Name = "Exit_Button";
+            this.Exit_Button.Size = new System.Drawing.Size(112, 34);
+            this.Exit_Button.TabIndex = 9;
+            this.Exit_Button.Text = "Выход";
+            this.Exit_Button.UseVisualStyleBackColor = true;
+            this.Exit_Button.Click += new System.EventHandler(this.Exit_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 485);
+            this.Controls.Add(this.Exit_Button);
             this.Controls.Add(this.Filters_GroupBox);
             this.Controls.Add(this.Clear_Button);
             this.Controls.Add(this.Change_Button);
@@ -543,8 +567,19 @@
         private System.Windows.Forms.Button Change_Button;
         private System.Windows.Forms.Button Clear_Button;
         private System.Windows.Forms.GroupBox Filters_GroupBox;
-        private System.Windows.Forms.RadioButton DepartmentSort_RadioButton;
-        private System.Windows.Forms.RadioButton WorkDaysSort_RadioButton;
+        private System.Windows.Forms.RadioButton YearSort_RadioButton;
+        private System.Windows.Forms.RadioButton MinutsSort_RadioButton;
+        private System.Windows.Forms.Button ApplyFilter;
+        private System.Windows.Forms.TextBox FilmCountry_TextBox;
+        private System.Windows.Forms.TextBox FilmYear_TextBox;
+        private System.Windows.Forms.ComboBox VideotapeType_ComboBox;
+        private System.Windows.Forms.Label FilterYear;
+        private System.Windows.Forms.TextBox YearSort_TextBox;
+        private System.Windows.Forms.ComboBox CopyType_ComboBox;
+        private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilmName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilmGenre;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilmDuration;
@@ -555,15 +590,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OneMinuteRecordCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecordCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalRecordCost;
-        private System.Windows.Forms.Button ApplyFilter;
-        private System.Windows.Forms.TextBox FilmCountry_TextBox;
-        private System.Windows.Forms.TextBox FilmYear_TextBox;
-        private System.Windows.Forms.ComboBox VideotapeType_ComboBox;
-        private System.Windows.Forms.Label FilterYear;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox CopyType_ComboBox;
-        private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
+        private System.Windows.Forms.Button Exit_Button;
     }
 }
 
