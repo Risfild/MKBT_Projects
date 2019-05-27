@@ -71,6 +71,8 @@
             this.ApplyFilter = new System.Windows.Forms.Button();
             this.DepartmentSort_RadioButton = new System.Windows.Forms.RadioButton();
             this.WorkDaysSort_RadioButton = new System.Windows.Forms.RadioButton();
+            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -169,6 +171,9 @@
             // 
             // File_StripMenuItem
             // 
+            this.File_StripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenToolStripMenuItem,
+            this.SaveToolStripMenuItem});
             this.File_StripMenuItem.Name = "File_StripMenuItem";
             this.File_StripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.File_StripMenuItem.Text = "Файл";
@@ -397,6 +402,7 @@
             this.Change_Button.TabIndex = 4;
             this.Change_Button.Text = "Изменить";
             this.Change_Button.UseVisualStyleBackColor = true;
+            this.Change_Button.Click += new System.EventHandler(this.Change_Button_Click);
             // 
             // Clear_Button
             // 
@@ -418,7 +424,7 @@
             this.Filters_GroupBox.Controls.Add(this.WorkDaysSort_RadioButton);
             this.Filters_GroupBox.Location = new System.Drawing.Point(301, 355);
             this.Filters_GroupBox.Name = "Filters_GroupBox";
-            this.Filters_GroupBox.Size = new System.Drawing.Size(467, 125);
+            this.Filters_GroupBox.Size = new System.Drawing.Size(388, 125);
             this.Filters_GroupBox.TabIndex = 5;
             this.Filters_GroupBox.TabStop = false;
             this.Filters_GroupBox.Text = "Фильтры";
@@ -470,6 +476,20 @@
             this.WorkDaysSort_RadioButton.Text = "Вывести список фильмов длительностью более 85 минут";
             this.WorkDaysSort_RadioButton.UseVisualStyleBackColor = true;
             // 
+            // OpenToolStripMenuItem
+            // 
+            this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OpenToolStripMenuItem.Text = "Открыть";
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // SaveToolStripMenuItem
+            // 
+            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveToolStripMenuItem.Text = "Сохранить";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,7 +504,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "SalaryDatabase";
+            this.Text = "FilmDatabase";
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -542,6 +562,8 @@
         private System.Windows.Forms.Label FilterYear;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox CopyType_ComboBox;
+        private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
     }
 }
 
