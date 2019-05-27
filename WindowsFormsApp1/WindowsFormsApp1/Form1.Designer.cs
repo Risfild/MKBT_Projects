@@ -42,18 +42,18 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File_StripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.CopyType_ComboBox = new System.Windows.Forms.ComboBox();
             this.VideotapeType_ComboBox = new System.Windows.Forms.ComboBox();
             this.FilmYear_Label = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.CopyType_Label = new System.Windows.Forms.Label();
-            this.SalaryAmount_TextBox = new System.Windows.Forms.TextBox();
-            this.Tax_TextBox = new System.Windows.Forms.TextBox();
-            this.CopayAmount_TextBox = new System.Windows.Forms.TextBox();
-            this.SalaryAmount_Label = new System.Windows.Forms.Label();
-            this.Tax_Label = new System.Windows.Forms.Label();
+            this.FilmRecordCostWithCopy_TextBox = new System.Windows.Forms.TextBox();
+            this.FilmRecordCost_TextBox = new System.Windows.Forms.TextBox();
+            this.OneMinuteRecordCost_TextBox = new System.Windows.Forms.TextBox();
+            this.FilmRecordCostWithCopy_Label = new System.Windows.Forms.Label();
+            this.FilmRecordCost_Label = new System.Windows.Forms.Label();
             this.VideotapeType_Label = new System.Windows.Forms.Label();
             this.FilmCountry_Label = new System.Windows.Forms.Label();
-            this.Premium_Label = new System.Windows.Forms.Label();
+            this.OneMinuteRecordCost_Label = new System.Windows.Forms.Label();
             this.FilmYear_TextBox = new System.Windows.Forms.TextBox();
             this.FilmCountry_TextBox = new System.Windows.Forms.TextBox();
             this.FilmDuration_TextBox = new System.Windows.Forms.TextBox();
@@ -66,11 +66,11 @@
             this.Change_Button = new System.Windows.Forms.Button();
             this.Clear_Button = new System.Windows.Forms.Button();
             this.Filters_GroupBox = new System.Windows.Forms.GroupBox();
+            this.FilterYear = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ApplyFilter = new System.Windows.Forms.Button();
             this.DepartmentSort_RadioButton = new System.Windows.Forms.RadioButton();
             this.WorkDaysSort_RadioButton = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.FilterYear = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -176,18 +176,18 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox.Controls.Add(this.CopyType_ComboBox);
             this.groupBox.Controls.Add(this.VideotapeType_ComboBox);
             this.groupBox.Controls.Add(this.FilmYear_Label);
-            this.groupBox.Controls.Add(this.textBox2);
             this.groupBox.Controls.Add(this.CopyType_Label);
-            this.groupBox.Controls.Add(this.SalaryAmount_TextBox);
-            this.groupBox.Controls.Add(this.Tax_TextBox);
-            this.groupBox.Controls.Add(this.CopayAmount_TextBox);
-            this.groupBox.Controls.Add(this.SalaryAmount_Label);
-            this.groupBox.Controls.Add(this.Tax_Label);
+            this.groupBox.Controls.Add(this.FilmRecordCostWithCopy_TextBox);
+            this.groupBox.Controls.Add(this.FilmRecordCost_TextBox);
+            this.groupBox.Controls.Add(this.OneMinuteRecordCost_TextBox);
+            this.groupBox.Controls.Add(this.FilmRecordCostWithCopy_Label);
+            this.groupBox.Controls.Add(this.FilmRecordCost_Label);
             this.groupBox.Controls.Add(this.VideotapeType_Label);
             this.groupBox.Controls.Add(this.FilmCountry_Label);
-            this.groupBox.Controls.Add(this.Premium_Label);
+            this.groupBox.Controls.Add(this.OneMinuteRecordCost_Label);
             this.groupBox.Controls.Add(this.FilmYear_TextBox);
             this.groupBox.Controls.Add(this.FilmCountry_TextBox);
             this.groupBox.Controls.Add(this.FilmDuration_TextBox);
@@ -203,13 +203,31 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Добавление";
             // 
+            // CopyType_ComboBox
+            // 
+            this.CopyType_ComboBox.FormattingEnabled = true;
+            this.CopyType_ComboBox.Items.AddRange(new object[] {
+            "Лазерная",
+            "Первая",
+            "Вторая"});
+            this.CopyType_ComboBox.Location = new System.Drawing.Point(165, 256);
+            this.CopyType_ComboBox.Name = "CopyType_ComboBox";
+            this.CopyType_ComboBox.Size = new System.Drawing.Size(111, 21);
+            this.CopyType_ComboBox.TabIndex = 7;
+            // 
             // VideotapeType_ComboBox
             // 
             this.VideotapeType_ComboBox.FormattingEnabled = true;
+            this.VideotapeType_ComboBox.Items.AddRange(new object[] {
+            "VHS",
+            "VHS-C",
+            "Video8",
+            "Hi8",
+            "MiniDV"});
             this.VideotapeType_ComboBox.Location = new System.Drawing.Point(165, 218);
             this.VideotapeType_ComboBox.Name = "VideotapeType_ComboBox";
             this.VideotapeType_ComboBox.Size = new System.Drawing.Size(111, 21);
-            this.VideotapeType_ComboBox.TabIndex = 2;
+            this.VideotapeType_ComboBox.TabIndex = 6;
             // 
             // FilmYear_Label
             // 
@@ -220,13 +238,6 @@
             this.FilmYear_Label.TabIndex = 0;
             this.FilmYear_Label.Text = "Год выпуска";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(165, 256);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 20);
-            this.textBox2.TabIndex = 1;
-            // 
             // CopyType_Label
             // 
             this.CopyType_Label.AllowDrop = true;
@@ -236,48 +247,48 @@
             this.CopyType_Label.TabIndex = 0;
             this.CopyType_Label.Text = "Тип копии";
             // 
-            // SalaryAmount_TextBox
+            // FilmRecordCostWithCopy_TextBox
             // 
-            this.SalaryAmount_TextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.SalaryAmount_TextBox.Enabled = false;
-            this.SalaryAmount_TextBox.Location = new System.Drawing.Point(165, 364);
-            this.SalaryAmount_TextBox.Name = "SalaryAmount_TextBox";
-            this.SalaryAmount_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.SalaryAmount_TextBox.TabIndex = 1;
+            this.FilmRecordCostWithCopy_TextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.FilmRecordCostWithCopy_TextBox.Enabled = false;
+            this.FilmRecordCostWithCopy_TextBox.Location = new System.Drawing.Point(165, 364);
+            this.FilmRecordCostWithCopy_TextBox.Name = "FilmRecordCostWithCopy_TextBox";
+            this.FilmRecordCostWithCopy_TextBox.Size = new System.Drawing.Size(111, 20);
+            this.FilmRecordCostWithCopy_TextBox.TabIndex = 1;
             // 
-            // Tax_TextBox
+            // FilmRecordCost_TextBox
             // 
-            this.Tax_TextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.Tax_TextBox.Enabled = false;
-            this.Tax_TextBox.Location = new System.Drawing.Point(165, 329);
-            this.Tax_TextBox.Name = "Tax_TextBox";
-            this.Tax_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.Tax_TextBox.TabIndex = 1;
+            this.FilmRecordCost_TextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.FilmRecordCost_TextBox.Enabled = false;
+            this.FilmRecordCost_TextBox.Location = new System.Drawing.Point(165, 329);
+            this.FilmRecordCost_TextBox.Name = "FilmRecordCost_TextBox";
+            this.FilmRecordCost_TextBox.Size = new System.Drawing.Size(111, 20);
+            this.FilmRecordCost_TextBox.TabIndex = 1;
             // 
-            // CopayAmount_TextBox
+            // OneMinuteRecordCost_TextBox
             // 
-            this.CopayAmount_TextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.CopayAmount_TextBox.Enabled = false;
-            this.CopayAmount_TextBox.Location = new System.Drawing.Point(165, 292);
-            this.CopayAmount_TextBox.Name = "CopayAmount_TextBox";
-            this.CopayAmount_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.CopayAmount_TextBox.TabIndex = 1;
+            this.OneMinuteRecordCost_TextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.OneMinuteRecordCost_TextBox.Enabled = false;
+            this.OneMinuteRecordCost_TextBox.Location = new System.Drawing.Point(165, 292);
+            this.OneMinuteRecordCost_TextBox.Name = "OneMinuteRecordCost_TextBox";
+            this.OneMinuteRecordCost_TextBox.Size = new System.Drawing.Size(111, 20);
+            this.OneMinuteRecordCost_TextBox.TabIndex = 1;
             // 
-            // SalaryAmount_Label
+            // FilmRecordCostWithCopy_Label
             // 
-            this.SalaryAmount_Label.Location = new System.Drawing.Point(7, 362);
-            this.SalaryAmount_Label.Name = "SalaryAmount_Label";
-            this.SalaryAmount_Label.Size = new System.Drawing.Size(122, 30);
-            this.SalaryAmount_Label.TabIndex = 0;
-            this.SalaryAmount_Label.Text = "Стоимость записи с учетом типа копии";
+            this.FilmRecordCostWithCopy_Label.Location = new System.Drawing.Point(7, 362);
+            this.FilmRecordCostWithCopy_Label.Name = "FilmRecordCostWithCopy_Label";
+            this.FilmRecordCostWithCopy_Label.Size = new System.Drawing.Size(122, 30);
+            this.FilmRecordCostWithCopy_Label.TabIndex = 0;
+            this.FilmRecordCostWithCopy_Label.Text = "Стоимость записи с учетом типа копии";
             // 
-            // Tax_Label
+            // FilmRecordCost_Label
             // 
-            this.Tax_Label.Location = new System.Drawing.Point(7, 328);
-            this.Tax_Label.Name = "Tax_Label";
-            this.Tax_Label.Size = new System.Drawing.Size(128, 27);
-            this.Tax_Label.TabIndex = 0;
-            this.Tax_Label.Text = "Общая стоимость записи фильма";
+            this.FilmRecordCost_Label.Location = new System.Drawing.Point(7, 328);
+            this.FilmRecordCost_Label.Name = "FilmRecordCost_Label";
+            this.FilmRecordCost_Label.Size = new System.Drawing.Size(128, 27);
+            this.FilmRecordCost_Label.TabIndex = 0;
+            this.FilmRecordCost_Label.Text = "Общая стоимость записи фильма";
             // 
             // VideotapeType_Label
             // 
@@ -297,34 +308,34 @@
             this.FilmCountry_Label.TabIndex = 0;
             this.FilmCountry_Label.Text = "Страна-производитель";
             // 
-            // Premium_Label
+            // OneMinuteRecordCost_Label
             // 
-            this.Premium_Label.Location = new System.Drawing.Point(7, 288);
-            this.Premium_Label.Name = "Premium_Label";
-            this.Premium_Label.Size = new System.Drawing.Size(120, 29);
-            this.Premium_Label.TabIndex = 0;
-            this.Premium_Label.Text = "Стоимость записи одной минуты";
+            this.OneMinuteRecordCost_Label.Location = new System.Drawing.Point(7, 288);
+            this.OneMinuteRecordCost_Label.Name = "OneMinuteRecordCost_Label";
+            this.OneMinuteRecordCost_Label.Size = new System.Drawing.Size(120, 29);
+            this.OneMinuteRecordCost_Label.TabIndex = 0;
+            this.OneMinuteRecordCost_Label.Text = "Стоимость записи одной минуты";
             // 
             // FilmYear_TextBox
             // 
             this.FilmYear_TextBox.Location = new System.Drawing.Point(165, 178);
             this.FilmYear_TextBox.Name = "FilmYear_TextBox";
             this.FilmYear_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.FilmYear_TextBox.TabIndex = 1;
+            this.FilmYear_TextBox.TabIndex = 5;
             // 
             // FilmCountry_TextBox
             // 
             this.FilmCountry_TextBox.Location = new System.Drawing.Point(165, 139);
             this.FilmCountry_TextBox.Name = "FilmCountry_TextBox";
             this.FilmCountry_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.FilmCountry_TextBox.TabIndex = 1;
+            this.FilmCountry_TextBox.TabIndex = 4;
             // 
             // FilmDuration_TextBox
             // 
             this.FilmDuration_TextBox.Location = new System.Drawing.Point(165, 104);
             this.FilmDuration_TextBox.Name = "FilmDuration_TextBox";
             this.FilmDuration_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.FilmDuration_TextBox.TabIndex = 1;
+            this.FilmDuration_TextBox.TabIndex = 3;
             // 
             // FilmDuration_Label
             // 
@@ -339,7 +350,7 @@
             this.FilmGanre_TextBox.Location = new System.Drawing.Point(165, 69);
             this.FilmGanre_TextBox.Name = "FilmGanre_TextBox";
             this.FilmGanre_TextBox.Size = new System.Drawing.Size(111, 20);
-            this.FilmGanre_TextBox.TabIndex = 1;
+            this.FilmGanre_TextBox.TabIndex = 2;
             // 
             // FilmGanre_Label
             // 
@@ -372,9 +383,10 @@
             this.Add_Button.Location = new System.Drawing.Point(11, 437);
             this.Add_Button.Name = "Add_Button";
             this.Add_Button.Size = new System.Drawing.Size(75, 43);
-            this.Add_Button.TabIndex = 4;
+            this.Add_Button.TabIndex = 8;
             this.Add_Button.Text = "Добавить";
             this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
             // Change_Button
             // 
@@ -410,6 +422,22 @@
             this.Filters_GroupBox.TabStop = false;
             this.Filters_GroupBox.Text = "Фильтры";
             // 
+            // FilterYear
+            // 
+            this.FilterYear.AutoSize = true;
+            this.FilterYear.Location = new System.Drawing.Point(244, 95);
+            this.FilterYear.Name = "FilterYear";
+            this.FilterYear.Size = new System.Drawing.Size(25, 13);
+            this.FilterYear.TabIndex = 3;
+            this.FilterYear.Text = "Год";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(278, 92);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(75, 20);
+            this.textBox1.TabIndex = 2;
+            // 
             // ApplyFilter
             // 
             this.ApplyFilter.Location = new System.Drawing.Point(247, 19);
@@ -440,22 +468,6 @@
             this.WorkDaysSort_RadioButton.Tag = "filter";
             this.WorkDaysSort_RadioButton.Text = "Вывести список фильмов длительностью более 85 минут";
             this.WorkDaysSort_RadioButton.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(278, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(75, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // FilterYear
-            // 
-            this.FilterYear.AutoSize = true;
-            this.FilterYear.Location = new System.Drawing.Point(244, 95);
-            this.FilterYear.Name = "FilterYear";
-            this.FilterYear.Size = new System.Drawing.Size(25, 13);
-            this.FilterYear.TabIndex = 3;
-            this.FilterYear.Text = "Год";
             // 
             // Form1
             // 
@@ -493,18 +505,17 @@
         private System.Windows.Forms.Label FilmYear_Label;
         private System.Windows.Forms.Label VideotapeType_Label;
         private System.Windows.Forms.Label FilmCountry_Label;
-        private System.Windows.Forms.Label Premium_Label;
+        private System.Windows.Forms.Label OneMinuteRecordCost_Label;
         private System.Windows.Forms.TextBox FilmGanre_TextBox;
         private System.Windows.Forms.Label FilmGanre_Label;
         private System.Windows.Forms.TextBox FilmName_TextBox;
         private System.Windows.Forms.Label FilmName_Label;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label CopyType_Label;
-        private System.Windows.Forms.TextBox CopayAmount_TextBox;
-        private System.Windows.Forms.TextBox Tax_TextBox;
-        private System.Windows.Forms.Label Tax_Label;
-        private System.Windows.Forms.TextBox SalaryAmount_TextBox;
-        private System.Windows.Forms.Label SalaryAmount_Label;
+        private System.Windows.Forms.TextBox OneMinuteRecordCost_TextBox;
+        private System.Windows.Forms.TextBox FilmRecordCost_TextBox;
+        private System.Windows.Forms.Label FilmRecordCost_Label;
+        private System.Windows.Forms.TextBox FilmRecordCostWithCopy_TextBox;
+        private System.Windows.Forms.Label FilmRecordCostWithCopy_Label;
         private System.Windows.Forms.TextBox FilmDuration_TextBox;
         private System.Windows.Forms.Label FilmDuration_Label;
         private System.Windows.Forms.Button Add_Button;
@@ -529,6 +540,7 @@
         private System.Windows.Forms.ComboBox VideotapeType_ComboBox;
         private System.Windows.Forms.Label FilterYear;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox CopyType_ComboBox;
     }
 }
 
